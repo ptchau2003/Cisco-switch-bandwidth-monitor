@@ -273,24 +273,32 @@ yum localinstall grafana-6.0.0-beta2.x86_64.rpm
 ```
 ## Grafana dashboard create and setting
 Go to **Create --> Data Source** --> Input the name and URL of the Prometheus hosts
-![Data Source Add](https://github.com/ptchau2003/bandwidthmonitor/blob/master/Add%20Grafana%20source.PNG)
 ![Data Source Add](https://github.com/ptchau2003/bandwidthmonitor/blob/master/Add%20Grafana%20source%20-%20Prometheus.PNG)
 
 ### Varibles setting
 Go to **Dashboard setting**
 
+![Data Source Add](https://github.com/ptchau2003/bandwidthmonitor/blob/master/Dashboard%20setting.PNG)
+
 Set the varibles **$device, $interface, $ifindex**
+
+![Data Source Add](https://github.com/ptchau2003/bandwidthmonitor/blob/master/Dashboard%20setting%20-%20Varibles.PNG)
 
 ### Dashboard Setting
 Go to **Create --> New Dashboard --> Add Query**
+![Data Source Add](https://github.com/ptchau2003/bandwidthmonitor/blob/master/new%20dashboard%20add%20query%201.PNG)
 
 Choose the Prometheus for Query
+![Data Source Add](https://github.com/ptchau2003/bandwidthmonitor/blob/master/new%20dashboard%20add%20query%201.PNG)
 
 Add metrics
 ```
 irate(BWOutOctets{job='snmp',instance='$device',interface=~'$interface'}[10m])*8/1000/1000
 ```
 It display the change interval in 10 minutes, because the rate is in 8-bit octets, so we multiply 8 for bits and divide to 1.000.000 for Mbps
+
+![Data Source Add](https://github.com/ptchau2003/bandwidthmonitor/blob/master/new%20dashboard%20add%20query%202.PNG)
+
 
 Please do the same BWInOctets and Juniper switch :-)
 
@@ -301,3 +309,5 @@ cpmCPUTotal{instance=~'$device',job="snmp"}
 ```
 
 # The result
+
+![Data Source Add](https://github.com/ptchau2003/bandwidthmonitor/blob/master/Final%20result.PNG)
