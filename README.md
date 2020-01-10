@@ -272,14 +272,14 @@ wget https://dl.grafana.com/oss/release/grafana-6.0.0-beta2.x86_64.rpm
 yum localinstall grafana-6.0.0-beta2.x86_64.rpm
 ```
 ## Grafana dashboard create and setting
-Go to Create --> Data Source --> Input the name and URL of the Prometheus hosts
+Go to **Create --> Data Source** --> Input the name and URL of the Prometheus hosts
 ### Varibles setting
-Go to Dashboard Setting
+Go to **Dashboard setting**
 
 Set the varibles **$device, $interface, $ifindex**
 
 ### Dashboard Setting
-Go to Create --> New Dashboard --> Add Query
+Go to **Create --> New Dashboard --> Add Query**
 
 Choose the Prometheus for Query
 
