@@ -1,7 +1,10 @@
 ﻿# Cisco/Juniper bandwidth monitor
 Using Grafana/Prometheus/snmpexporter to monitor CPU/bandwidth of Cisco interfaces
+
 The SNMP exporter will collect the SNMP information from Cisco/Juniper switch by **pull** method and store in Prometheus
+
 The Grafana will dislay the information connecting to Prometheus
+
 ## Download and install Prometheus  
 ```
 wget https://github.com/prometheus/prometheus/releases/download/v2.15.2/prometheus-2.15.2.linux-amd64.tar.gz
@@ -261,3 +264,12 @@ The command below will return the CPU of mentioned Cisco switches
 snmpbulkwalk -v 2c -c audit -On cisco1 1.3.6.1.4.1.9.9.109.1.1.1.1.4.1
 .1.3.6.1.4.1.9.9.109.1.1.1.1.4.1 = Gauge32: 19 **
 ```
+## Grafana download and install
+```
+wget https://dl.grafana.com/oss/release/grafana-6.0.0-beta2.x86_64.rpm
+yum localinstall grafana-6.0.0-beta2.x86_64.rpm
+```
+## Grafana dashboard create and setting
+### Add Prometheus source to Grafana
+### Varibles setting
+### Dashboard Setting
