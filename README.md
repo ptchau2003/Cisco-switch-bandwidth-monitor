@@ -289,6 +289,12 @@ irate(BWOutOctets{job='snmp',instance='$device',interface=~'$interface'}[10m])*8
 ```
 It display the change interval in 10 minutes, because the rate is in 8-bit octets, so we multiply 8 for bits and divide to 1.000.000 for Mbps
 
-Please do the same for CPU and BWInOctets and Juniper switch :-)
+Please do the same BWInOctets and Juniper switch :-)
+
+For CPU add metrics
+
+```
+cpmCPUTotal{instance=~'$device',job="snmp"}
+```
 
 # The result
