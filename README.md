@@ -233,7 +233,7 @@ junipersw:
     help: The overall CPU busy percentage
 ```
 
-##Run snmp exporter
+## Run snmp exporter
 
 ```
 ./snmp_exporter &
