@@ -273,6 +273,9 @@ yum localinstall grafana-6.0.0-beta2.x86_64.rpm
 ```
 ## Grafana dashboard create and setting
 Go to **Create --> Data Source** --> Input the name and URL of the Prometheus hosts
+![Data Source Add](https://github.com/ptchau2003/bandwidthmonitor/blob/master/Add%20Grafana%20source.PNG)
+![Data Source Add](https://github.com/ptchau2003/bandwidthmonitor/blob/master/Add%20Grafana%20source%20-%20Prometheus.PNG)
+
 ### Varibles setting
 Go to **Dashboard setting**
 
