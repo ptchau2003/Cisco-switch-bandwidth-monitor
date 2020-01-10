@@ -235,7 +235,9 @@ junipersw:
 ```
 ## Verify your SNMP connection to Cisco/Juniper switches
 The command below will return the InputBandwith in octets of each interface
+
 **snmpbulkwalk -v 2c -c audit -On cisco1 1.3.6.1.2.1.31.1.1.1.6**
+
 ```
 snmpbulkwalk -v 2c -c audit -On cisco1 1.3.6.1.2.1.31.1.1.1.6
 .1.3.6.1.2.1.31.1.1.1.6.2 = Counter64: 221761800940631
@@ -251,4 +253,11 @@ snmpbulkwalk -v 2c -c audit -On cisco1 1.3.6.1.2.1.31.1.1.1.6
 .1.3.6.1.2.1.31.1.1.1.6.12 = Counter64: 119898664568633
 .1.3.6.1.2.1.31.1.1.1.6.13 = Counter64: 119780222545415
 .1.3.6.1.2.1.31.1.1.1.6.14 = Counter64: 378268519621369
+```
+The command below will return the CPU of mentioned Cisco switches
+
+**snmpbulkwalk -v 2c -c audit -On cisco1 1.3.6.1.4.1.9.9.109.1.1.1.1.4.1**
+```
+snmpbulkwalk -v 2c -c audit -On cisco1 1.3.6.1.4.1.9.9.109.1.1.1.1.4.1
+.1.3.6.1.4.1.9.9.109.1.1.1.1.4.1 = Gauge32: 19 **
 ```
