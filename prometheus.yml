@@ -1,59 +1,15 @@
 # Global config
-global: 
-  scrape_interval:     240s # Set the scrape interval to every 15 seconds. Default is every 1 minute.  
-  evaluation_interval: 240s # Evaluate rules every 15 seconds. The default is every 1 minute.  
+global:
+  scrape_interval:     240s # Set the scrape interval to every 15 seconds. Default is every 1 minute.
+  evaluation_interval: 240s # Evaluate rules every 15 seconds. The default is every 1 minute.
   scrape_timeout: 120s  # scrape_timeout is set to the global default (10s).
 
 # A scrape configuration containing exactly one endpoint to scrape:# Here it's Prometheus itself.
 scrape_configs:
   - job_name: 'snmp'
     static_configs:
-    - targets: ['hsbu12a']
-    - targets: ['hsbu12b']
-    - targets: ['hsbu27a']
-    - targets: ['hsbu27b']
-    - targets: ['hsbu29a']
-    - targets: ['hsbu29b']
-    - targets: ['hsbu30a']
-    - targets: ['hsbu30b']
-    - targets: ['hsbu31a']
-    - targets: ['hsbu31b']
-    - targets: ['hsbu32a']
-    - targets: ['hsbu32b']
-    - targets: ['hsbu33a']
-    - targets: ['hsbu33b']
-    - targets: ['hsbu36a']
-    - targets: ['hsbu36b']
-    - targets: ['hsbu38a']
-    - targets: ['hsbu38b']
-    - targets: ['hsbu39a']
-    - targets: ['hsbu39b']
-    - targets: ['hsbu40a']
-    - targets: ['hsbu40b']
-    - targets: ['hsbu1a1']
-    - targets: ['hsbu1b1']
-    - targets: ['hsbu1a2']
-    - targets: ['hsbu1b2']
-    - targets: ['hsbu1a3']
-    - targets: ['hsbu1b3']
-    - targets: ['hsbu1a4']
-    - targets: ['hsbu1b4']
-    - targets: ['hsbu1a5']
-    - targets: ['hsbu1b5']
-    - targets: ['hsbu1a6']
-    - targets: ['hsbu1b6']
-    - targets: ['hsbu1a7']
-    - targets: ['hsbu1b7']
-    - targets: ['hsbu1a8']
-    - targets: ['hsbu1b8']
-    - targets: ['hsbu1a9']
-    - targets: ['hsbu1b9']
-    - targets: ['hsbu1a10']
-    - targets: ['hsbu1b10']
-    - targets: ['hsbu1a11']
-    - targets: ['hsbu1b11']
-    - targets: ['hsbu1a12']
-    - targets: ['hsbu1b12']
+    - targets: ['cisco1']
+    - targets: ['cisco2']
     metrics_path: /snmp
     params:
       module: ['ciscosw']
@@ -63,10 +19,10 @@ scrape_configs:
       - source_labels: [__param_target]
         target_label: instance
       - target_label: __address__
-        replacement: 10.49.62.134:9116
+        replacement: localhost:9116
   - job_name: 'snmpj'
     static_configs:
-    - targets: ['hsbu1a17']
+    - targets: ['juniper1']
     metrics_path: /snmp
     params:
       module: ['junipersw']
@@ -76,4 +32,4 @@ scrape_configs:
       - source_labels: [__param_target]
         target_label: instance
       - target_label: __address__
-        replacement: 10.49.62.134:9116
+        replacement: localhost:9116
