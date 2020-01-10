@@ -23,7 +23,9 @@ tar -xvf snmp_exporter-0.16.1.linux-amd64.tar.gz
 ## Configure the prometheus.yml file
 We use 02 jobs: one snmp for Cisco switch and snmpj for Juniper one.
 snmp will use module ciscosw (SNMP exporter) snmpj use junipersw (SNMP expoter module)
+
 The **- targets:** describes the host list of the monitor switches in your local /etc/hosts
+
 **replacement locahost:9116** is the IP and port you will connect by http. You can replace localhost by your dedicated IP address
 
 ```
@@ -65,7 +67,9 @@ scrape_configs:
 ```
 ## Configure the snmp.yml file
 Add the ciscosw and junipersw part for Input and Output and CPU bandwidth monitor. For the others, keep it for the same. They are SNMP walk for other products.
+
 Please note that you have to create a SNMP community at Cisco/Juniper switch. As below the community added is **audit**
+
 Cisco uses SNMP OID 1.3.6.1.2.1.31.1.1.1.6 to return a Input bandwidth in octets of an interface. Meanwhile, Juniper uses SNMP OID 1.3.6.1.2.1.2.2.1.10 to return a Input bandwidth in octets of an interface
 
 ```
