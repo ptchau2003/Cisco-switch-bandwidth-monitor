@@ -272,6 +272,23 @@ wget https://dl.grafana.com/oss/release/grafana-6.0.0-beta2.x86_64.rpm
 yum localinstall grafana-6.0.0-beta2.x86_64.rpm
 ```
 ## Grafana dashboard create and setting
-### Add Prometheus source to Grafana
+Go to Create --> Data Source --> Input the name and URL of the Prometheus hosts
 ### Varibles setting
+Go to Dashboard Setting
+
+Set the varibles **$device, $interface, $ifindex**
+
 ### Dashboard Setting
+Go to Create --> New Dashboard --> Add Query
+
+Choose the Prometheus for Query
+
+Add metrics
+```
+irate(BWOutOctets{job='snmp',instance='$device',interface=~'$interface'}[10m])*8/1000/1000
+```
+It display the change interval in 10 minutes, because the rate is in 8-bit octets, so we multiply 8 for bits and divide to 1.000.000 for Mbps
+
+Please do the same for CPU and BWInOctets and Juniper switch :-)
+
+# The result
