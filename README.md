@@ -65,6 +65,10 @@ scrape_configs:
       - target_label: __address__
         replacement: localhost:9116
 ```
+## Run prometheus
+```
+./prometheus --config.file prometheus.yml &
+```
 ## Configure the snmp.yml file
 Add the ciscosw and junipersw part for Input and Output and CPU bandwidth monitor. For the others, keep it for the same. They are SNMP walk for other products.
 
@@ -224,4 +228,27 @@ junipersw:
     oid: 1.3.6.1.4.1.2636.3.1.13.1.8.9.1.0.0
     type: gauge
     help: The overall CPU busy percentage
+```
+##Run snmp
+```
+./snmp_exporter &
+```
+## Verify your SNMP connection to Cisco/Juniper switches
+The command below will return the InputBandwith in octets of each interface
+**snmpbulkwalk -v 2c -c audit -On cisco1 1.3.6.1.2.1.31.1.1.1.6**
+```
+snmpbulkwalk -v 2c -c audit -On cisco1 1.3.6.1.2.1.31.1.1.1.6
+.1.3.6.1.2.1.31.1.1.1.6.2 = Counter64: 221761800940631
+.1.3.6.1.2.1.31.1.1.1.6.3 = Counter64: 240324462313013
+.1.3.6.1.2.1.31.1.1.1.6.4 = Counter64: 201557378805616
+.1.3.6.1.2.1.31.1.1.1.6.5 = Counter64: 177676708472093
+.1.3.6.1.2.1.31.1.1.1.6.6 = Counter64: 0
+.1.3.6.1.2.1.31.1.1.1.6.7 = Counter64: 0
+.1.3.6.1.2.1.31.1.1.1.6.8 = Counter64: 0
+.1.3.6.1.2.1.31.1.1.1.6.9 = Counter64: 44333199794
+.1.3.6.1.2.1.31.1.1.1.6.10 = Counter64: 0
+.1.3.6.1.2.1.31.1.1.1.6.11 = Counter64: 0
+.1.3.6.1.2.1.31.1.1.1.6.12 = Counter64: 119898664568633
+.1.3.6.1.2.1.31.1.1.1.6.13 = Counter64: 119780222545415
+.1.3.6.1.2.1.31.1.1.1.6.14 = Counter64: 378268519621369
 ```
