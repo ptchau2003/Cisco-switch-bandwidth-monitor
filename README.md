@@ -295,7 +295,7 @@ Add metrics
 ```
 irate(BWOutOctets{job='snmp',instance='$device',interface=~'$interface'}[10m])*8/1000/1000
 ```
-It display the change interval in 10 minutes, because the rate is in 8-bit octets, so we multiply 8 for bits and divide to 1.000.000 for Mbps
+It display the change interval in 10 minutes, because the rate is in 8-bit octets, so we multiply by 8 for bits and divide to 1.000.000 for Mbps
 
 ![Data Source Add](https://github.com/ptchau2003/bandwidthmonitor/blob/master/new%20dashboard%20add%20query%202.PNG)
 
